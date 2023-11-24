@@ -1,1 +1,1 @@
-# rn-pedometer
+CHU Podomètre React Native
