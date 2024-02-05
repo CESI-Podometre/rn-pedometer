@@ -1,1 +1,0 @@
-CHU Podomètre React Native
