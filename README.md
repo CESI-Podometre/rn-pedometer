@@ -1,13 +1,9 @@
 <p align="center"><img src="assets/Logos/logo-app.svg" alt="Logo de StarFit" width="150" height="150"></p>
 
 
-<p align="center" style="font-size: 28px; font-weight: bold;">
-StarFit - Podomètre Spatial 🚀
-</p>
+<p align="center" style="font-size: 28px; font-weight: bold;">StarFit - Podomètre Spatial 🚀</p>
 
-<p align="center" style="font-size: 18px;">
-🌜 Viser la lune pour mettre des étoiles dans les yeux des patients ⭐
-</p>
+<p align="center" style="font-size: 18px;">🌜 Viser la lune pour mettre des étoiles dans les yeux des patients ⭐</p>
 
 
 ## Description
