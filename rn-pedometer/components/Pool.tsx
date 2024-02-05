@@ -12,7 +12,7 @@ export default function Pool() {
 
     return (
         <View>
-            <Text>Pool</Text>
+            <Text>Pool {pool}</Text>
             <Text>Money Amount</Text>
         </View>
     );
