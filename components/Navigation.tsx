@@ -1,27 +1,22 @@
-import {View, Image, StyleSheet} from "react-native";
-import '../styles/Navigation.css';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from "../pages/Home";
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
 
-function Navigation(){
+const Tab = createBottomTabNavigator();
+
+const Navigation = () => {
     return (
-        <View style={styles.container}>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-        </View>
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen name="Home" component={Home} options={{ title: 'Home', headerShown: false }} />
+                <Tab.Screen name="Settings" component={Settings} options={{ title: 'Settings', headerShown: false }} />
+                <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profile', headerShown: false }} />
+            </Tab.Navigator>
+        </NavigationContainer>
     );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
-    },
-});
+};
 
 export default Navigation;
