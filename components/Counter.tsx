@@ -7,8 +7,8 @@ function Counter() {
     const [pastStepCount, setPastStepCount] = useState(0);
     const [currentStepCount, setCurrentStepCount] = useState(0);
 
-    console.log("Counter");
-    console.log("isPedometerAvailable: " + isPedometerAvailable);
+    // console.log("Counter");
+    // console.log("isPedometerAvailable: " + isPedometerAvailable);
 
     const subscribe = async () => {
         const isAvailable = await Pedometer.isAvailableAsync();
@@ -47,14 +47,10 @@ function Counter() {
 
     return (
         <View style={styles.container}>
-            {/*<Text>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>*/}
-            {/*<Text>Steps taken in the last 24 hours: {pastStepCount}</Text>*/}
-            <Text>Walk! And watch this go up: {currentStepCount}</Text>
+            {/*<Text>Walk! And watch this go up: {currentStepCount}</Text>*/}
 
             {isPedometerAvailable && (
-                <View>
-                    <Text>Steps taken in the last 24 hours: {pastStepCount}</Text>
-                </View>
+                    <Text style={styles.steps}>{pastStepCount}</Text>
             )}
         </View>
     );
@@ -65,6 +61,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+    },
+
+    steps: {
+        fontSize: 20,
+        fontWeight: 'bold',
     },
 });
 
