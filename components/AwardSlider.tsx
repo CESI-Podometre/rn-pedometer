@@ -5,12 +5,11 @@ import React from "react";
 export default function AwardSlider() {
 
     const getAwards = () => {
-        const awards = [{id: 1, name: "Saturn", image: require('../assets/Planets/saturn.png')}, {
+        return [{id: 1, name: "Saturn", image: require('../assets/Planets/saturn.png')}, {
             id: 2,
             name: "Terre",
             image: require('../assets/Planets/earth.png')
         }, {id: 3, name: "Sylvaria", image: require('../assets/Planets/neptune.png')}];
-        return awards;
     }
 
     return (

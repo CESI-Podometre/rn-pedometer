@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, StyleSheet, SafeAreaView} from "react-native";
+import { Text, StyleSheet, SafeAreaView} from "react-native";
 
 export default function Progress() {
     return (

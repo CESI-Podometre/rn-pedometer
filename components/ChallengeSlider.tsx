@@ -1,11 +1,10 @@
 import ChallengeCard from "./ChallengeCard";
-import {View, Text, ScrollView, StyleSheet} from "react-native";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 
 export default function ChallengeSlider() {
 
     const getChallenges = () => {
-        const challenges = [{id: 1, title: "Challenge 1"}, {id: 2, title: "Challenge 2"}, {id: 3, title: "Challenge 3"}];
-        return challenges;
+        return [{id: 1, title: "Challenge 1"}, {id: 2, title: "Challenge 2"}, {id: 3, title: "Challenge 3"}];
     }
 
     return (

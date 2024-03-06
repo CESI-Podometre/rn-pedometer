@@ -8,29 +8,7 @@ export default function Profile() {
     const profilePlanet = require('../assets/Planets/moon.png');
     const astronaut = require('../assets/astro.png');
 
-    const earth = require('../assets/Planets/earth.png');
-    const neptune = require('../assets/Planets/neptune.png');
-    const saturn = require('../assets/Planets/saturn.png');
-
     const avatar = {uri: 'https://www.pngkey.com/png/full/114-1149878_planet-clipart-transparent-background-planet-clipart.png'};
-
-    const awardList = [
-        {
-            id: 1,
-            name: 'Saturn',
-            image: saturn
-        },
-        {
-            id: 2,
-            name: 'Terre',
-            image: earth
-        },
-        {
-            id: 3,
-            name: 'Sylvaria',
-            image: neptune
-        },
-    ];
 
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}>

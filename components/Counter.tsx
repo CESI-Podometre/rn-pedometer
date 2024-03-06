@@ -7,7 +7,7 @@ function Counter() {
     const [pastStepCount, setPastStepCount] = useState(0);
     const [currentStepCount, setCurrentStepCount] = useState(0);
 
-    // console.log("Counter");
+    console.log(currentStepCount);
     // console.log("isPedometerAvailable: " + isPedometerAvailable);
 
     const subscribe = async () => {
