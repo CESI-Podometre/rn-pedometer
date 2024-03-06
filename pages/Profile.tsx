@@ -1,5 +1,7 @@
 import React from "react";
 import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
+import AwardSlider from "../components/AwardSlider";
+import Counter from "../components/Counter";
 
 export default function Profile() {
     const profileBackground = require('../assets/Backgrounds/background-login.png');
@@ -41,27 +43,15 @@ export default function Profile() {
             <View style={styles.profile}>
                 <View style={styles.container}>
                     <Image source={avatar} style={styles.avatar}/>
-                    <Text style={styles.text}>Username</Text>
+                    <Text style={styles.text}>Noah</Text>
                 </View>
 
                 <View style={styles.container}>
-                    <Text style={styles.text}>Total Step Counter</Text>
-                    <Text style={styles.steps}>10000</Text>
+                    <Text style={styles.text}>Nombre de pas total</Text>
+                    <Counter/>
                 </View>
 
-                <View style={styles.container}>
-                    <Text style={styles.text}>My awards</Text>
-                    {awardList.length > 0 && (
-                        <View style={styles.awardList}>
-                            {awardList.map((award) => (
-                                <View key={award.id} style={styles.awardCard}>
-                                    <Image source={award.image} style={styles.awardImage}/>
-                                    <Text>{award.name}</Text>
-                                </View>
-                            ))}
-                        </View>
-                    )}
-                </View>
+                <AwardSlider/>
 
                 <View style={styles.container}>
                     <Text style={styles.text}>My performance</Text>
@@ -78,7 +68,7 @@ const styles = StyleSheet.create({
 
         width: '100%',
 
-        gap: 20,
+        gap: 30,
     },
 
     imageBackground: {
@@ -97,7 +87,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
 
         position: 'relative',
-        top: 300,
+        top: 250,
     },
 
     image: {
@@ -126,36 +116,16 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 60,
         borderTopRightRadius: 60,
         padding: 20,
-        gap: 30,
+        gap: 60,
     },
 
     text: {
+        textTransform: 'uppercase',
         fontSize: 20,
     },
 
-    steps: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
 
 
-    awardList: {
-        flexDirection: 'row',
 
-        width: '100%',
 
-        justifyContent: 'space-evenly',
-    },
-
-    awardCard: {
-        alignItems: 'center',
-        gap: 10,
-    },
-
-    awardImage: {
-        width: 75,
-        height: 75,
-        borderRadius: 50,
-        overflow: 'hidden',
-    },
 });
