@@ -1,8 +1,26 @@
+import {SafeAreaView, Text, StyleSheet} from "react-native";
+
 export default function News() {
     return (
-        <div>
-            <h1>News</h1>
-            <p>Here are some news</p>
-        </div>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.text}>News</Text>
+        </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        gap: 30,
+    },
+
+    text: {
+        fontSize: 24,
+        fontWeight: '300',
+        color: 'black',
+
+        textTransform: 'uppercase',
+    },
+});
