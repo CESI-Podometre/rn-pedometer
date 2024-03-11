@@ -5,11 +5,15 @@ import React from "react";
 export default function AwardSlider() {
 
     const getAwards = () => {
-        return [{id: 1, name: "Saturn", image: require('../assets/Planets/saturn.png')}, {
-            id: 2,
-            name: "Terre",
-            image: require('../assets/Planets/earth.png')
-        }, {id: 3, name: "Sylvaria", image: require('../assets/Planets/neptune.png')}];
+        const awards = [
+            {id: 1, name: "Saturn", image: require('../assets/Planets/saturn.png'), unlocked: true},
+            {id: 2, name: "Terre", image: require('../assets/Planets/earth.png'), unlocked: false},
+            {id: 3, name: "Sylvaria", image: require('../assets/Planets/neptune.png'), unlocked: true}
+        ];
+
+        awards.sort(award => award.unlocked ? -1 : 1);
+
+        return awards;
     }
 
     return (
@@ -18,7 +22,7 @@ export default function AwardSlider() {
             {getAwards().length > 0 && (
                 <View style={styles.awardList}>
                     {getAwards().map(award => (
-                        <AwardCard key={award.id} params={{id: award.id, name: award.name, image: award.image}}/>
+                        <AwardCard key={award.id} params={{id: award.id, name: award.name, image: award.image, unlocked: award.unlocked}}/>
                     ))}
                 </View>
             )}
