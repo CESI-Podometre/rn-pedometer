@@ -2,13 +2,18 @@ import React from "react";
 import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
 import AwardSlider from "../components/AwardSlider";
 import Counter from "../components/Counter";
+import ChartCard from "../components/ChartCard";
+
+import { useUserContext } from "../context/UserContext";
 
 export default function Profile() {
     const profileBackground = require('../assets/Backgrounds/background-login.png');
     const profilePlanet = require('../assets/Planets/moon.png');
     const astronaut = require('../assets/astro.png');
 
-    const avatar = {uri: 'https://www.pngkey.com/png/full/114-1149878_planet-clipart-transparent-background-planet-clipart.png'};
+    const {userImage} = useUserContext();
+
+    let avatar = require('../assets/Avatars/astro_blue.png');
 
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}>
@@ -33,6 +38,7 @@ export default function Profile() {
 
                 <View style={styles.container}>
                     <Text style={styles.text}>My performance</Text>
+                    <ChartCard/>
                 </View>
             </View>
         </ScrollView>
