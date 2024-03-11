@@ -14,22 +14,20 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "googleServicesFile": "./google-services.json",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.chu.starfit"
-    },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "@react-native-firebase/app"
-    ]
+    "extra": {
+      "eas": {
+        "projectId": "b340f1b7-5431-4fd3-922b-b662c3382bbe"
+      }
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/b340f1b7-5431-4fd3-922b-b662c3382bbe"
+    },
+    "ios": {
+      "bundleIdentifier": "com.starfit.fr"
+    }
   }
 }
