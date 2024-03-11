@@ -4,7 +4,7 @@ export default function Settings() {
     const LogoCHY = require('../assets/Logos/logo-chu-colored.png');
     const LogoDEPS = require('../assets/Logos/logo-chu.png');
 
-    const Avatar = {uri: 'https://www.pngkey.com/png/full/114-1149878_planet-clipart-transparent-background-planet-clipart.png'};
+    const Avatar = require('../assets/Avatars/astro_blue.png');
 
     return (
         <SafeAreaView style={styles.page}>
@@ -15,20 +15,20 @@ export default function Settings() {
                 </Pressable>
             </View>
 
-            <View style={styles.container}>
-                <Text style={styles.text}>Username</Text>
-                <TextInput style={styles.input}/>
-            </View>
+            {/*<View style={styles.container}>*/}
+            {/*    <Text style={styles.text}>Username</Text>*/}
+            {/*    <TextInput style={styles.input}/>*/}
+            {/*</View>*/}
 
-            <View style={styles.container}>
-                <Text style={styles.text}>Password</Text>
-                <TextInput style={styles.input}/>
-                <TextInput style={styles.input}/>
-            </View>
+            {/*<View style={styles.container}>*/}
+            {/*    <Text style={styles.text}>Password</Text>*/}
+            {/*    <TextInput style={styles.input}/>*/}
+            {/*    <TextInput style={styles.input}/>*/}
+            {/*</View>*/}
 
-            <Pressable style={styles.button}>
-                <Text>Save Changes</Text>
-            </Pressable>
+            {/*<Pressable style={styles.button}>*/}
+            {/*    <Text>Save Changes</Text>*/}
+            {/*</Pressable>*/}
 
             <View style={styles.links}>
 
