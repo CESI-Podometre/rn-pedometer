@@ -13,13 +13,15 @@ const Navigation = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator>
-                <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profile', headerShown: false }} />
-                <Tab.Screen name="Progession" component={Progress} options={{ title: 'Progress', headerShown: false }} />
+                <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profil', headerShown: false, tabBarIcon: () => null }} />
 
-                <Tab.Screen name="Home" component={Home} options={{ title: 'Home', headerShown: false }} />
+                <Tab.Screen name="Progession" component={Progress} options={{ title: 'Progression', headerShown: false, tabBarIcon: () => null }} />
 
-                <Tab.Screen name="Actus" component={News} options={{ title: 'News', headerShown: false }} />
-                <Tab.Screen name="Parametres" component={Settings} options={{ title: 'Settings', headerShown: false }} />
+                <Tab.Screen name="Home" component={Home} options={{ title: 'Accueil', headerShown: false, tabBarIcon: () => null }} />
+
+                <Tab.Screen name="Actus" component={News} options={{ title: 'Actus', headerShown: false, tabBarIcon: () => null }} />
+
+                <Tab.Screen name="Parametres" component={Settings} options={{ title: 'Params', headerShown: true, tabBarIcon: () => null }} />
             </Tab.Navigator>
         </NavigationContainer>
     );
