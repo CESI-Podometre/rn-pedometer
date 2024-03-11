@@ -1,16 +1,21 @@
 import {ImageBackground, StyleSheet, Text} from "react-native";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Pool() {
 
     const [pool, setPool] = useState(0);
 
-    const poolBackground = {uri: 'https://t3.ftcdn.net/jpg/04/84/21/36/360_F_484213675_pCsyhX0ZqQ6jpG1NnkggHe6WiTxen8kk.jpg'};
+    // const poolBackground = {uri: 'https://t3.ftcdn.net/jpg/04/84/21/36/360_F_484213675_pCsyhX0ZqQ6jpG1NnkggHe6WiTxen8kk.jpg'};
+    const poolBackground = require('../assets/Backgrounds/pool-background.png');
 
     const getPool = async () => {
         const pool = 200;
         setPool(pool);
     }
+
+    useEffect(() => {
+        getPool();
+    }, []);
 
     return (
         <ImageBackground source={poolBackground} style={styles.container}>
