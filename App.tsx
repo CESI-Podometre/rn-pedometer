@@ -1,11 +1,14 @@
-import {Text, SafeAreaView} from "react-native";
-import Counter from "./components/Counter";
+import React from 'react';
+import Navigation from './components/Navigation';
+import Login from "./pages/Login";
 
+const isUserLoggedIn = false;
 export default function App() {
     return (
-        <SafeAreaView>
-            <Text>App</Text>
-            <Counter/>
-        </SafeAreaView>
+        <Navigation/>
+
+        // <Login/>
+
+        // {isUserLoggedIn && <Navigation/>}
     );
 }

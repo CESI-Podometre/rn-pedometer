@@ -7,8 +7,8 @@ function Counter() {
     const [pastStepCount, setPastStepCount] = useState(0);
     const [currentStepCount, setCurrentStepCount] = useState(0);
 
-    console.log("Counter");
-    console.log("isPedometerAvailable: " + isPedometerAvailable);
+    const [previousDayStepCount, setPreviousDayStepCount] = useState(0);
+    const [currentDayStepCount, setCurrentDayStepCount] = useState(0);
 
     const subscribe = async () => {
         const isAvailable = await Pedometer.isAvailableAsync();
@@ -20,13 +20,14 @@ function Counter() {
             start.setDate(end.getDate() - 1);
 
             if (Platform.OS === "ios") {
-                const pastStepCountResult = await Pedometer.getStepCountAsync(
-                    start,
-                    end
-                );
-                if (pastStepCountResult) {
-                    setPastStepCount(pastStepCountResult.steps);
+                const previousDayStepCountResult = await Pedometer.getStepCountAsync(start, end);
+                if (previousDayStepCountResult) {
+                    setPreviousDayStepCount(previousDayStepCountResult.steps);
                 }
+            }
+
+            if  (Platform.OS === "android") {
+
             }
 
             return Pedometer.watchStepCount((result) => {
@@ -47,15 +48,11 @@ function Counter() {
 
     return (
         <View style={styles.container}>
-            {/*<Text>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>*/}
-            {/*<Text>Steps taken in the last 24 hours: {pastStepCount}</Text>*/}
-            <Text>Walk! And watch this go up: {currentStepCount}</Text>
+            {/*{isPedometerAvailable && (*/}
+            {/*        <Text style={styles.steps}>{pastStepCount}</Text>*/}
+            {/*)}*/}
 
-            {isPedometerAvailable && (
-                <View>
-                    <Text>Steps taken in the last 24 hours: {pastStepCount}</Text>
-                </View>
-            )}
+            <Text style={styles.steps}>{currentStepCount} Pas</Text>
         </View>
     );
 }
@@ -65,6 +62,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+    },
+
+    steps: {
+        fontSize: 20,
+        fontWeight: 'bold',
     },
 });
 

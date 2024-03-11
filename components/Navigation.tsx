@@ -1,27 +1,30 @@
-import {View, Image, StyleSheet} from "react-native";
-import '../styles/Navigation.css';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from "../pages/Home";
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
+import Progress from "../pages/Progress";
+import News  from "../pages/News";
 
-function Navigation(){
+const Tab = createBottomTabNavigator();
+
+const Navigation = () => {
     return (
-        <View style={styles.container}>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-            <Image source={require('../assets/Logos/logo.png')}/>
-        </View>
-    );
-}
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profil', headerShown: false, tabBarIcon: () => null }} />
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
-    },
-});
+                <Tab.Screen name="Progession" component={Progress} options={{ title: 'Progression', headerShown: false, tabBarIcon: () => null }} />
+
+                <Tab.Screen name="Home" component={Home} options={{ title: 'Accueil', headerShown: false, tabBarIcon: () => null }} />
+
+                <Tab.Screen name="Actus" component={News} options={{ title: 'Actus', headerShown: false, tabBarIcon: () => null }} />
+
+                <Tab.Screen name="Parametres" component={Settings} options={{ title: 'Params', headerShown: true, tabBarIcon: () => null }} />
+            </Tab.Navigator>
+        </NavigationContainer>
+    );
+};
 
 export default Navigation;

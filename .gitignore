@@ -122,3 +122,11 @@ docs/pages/versions/*/react-native/*.diff
 
 # Package-lock files
 package-lock.json
+
+/ios
+
+/android
+
+/.idea
+
+/dist
