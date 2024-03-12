@@ -1,8 +1,8 @@
 import React from "react";
 import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
-import AwardSlider from "../components/AwardSlider";
+import AwardSlider from "../components/Awards/AwardSlider";
 import Counter from "../components/Counter";
-import ChartCard from "../components/ChartCard";
+import ChartCard from "../components/Performances/ChartCard";
 
 import { useUserContext } from "../context/UserContext";
 
@@ -26,7 +26,7 @@ export default function Profile() {
             <View style={styles.profile}>
                 <View style={styles.container}>
                     <Image source={avatar} style={styles.avatar}/>
-                    <Text style={styles.text}>Noah</Text>
+                    <Text style={styles.text}>Bienvenue Voyageur</Text>
                 </View>
 
                 <View style={styles.container}>
@@ -34,10 +34,13 @@ export default function Profile() {
                     <Counter/>
                 </View>
 
-                <AwardSlider/>
+                <View style={styles.container}>
+                    <Text style={styles.text}>Liste des récompenses</Text>
+                    <AwardSlider/>
+                </View>
 
                 <View style={styles.container}>
-                    <Text style={styles.text}>My performance</Text>
+                    <Text style={styles.text}>Mes performances</Text>
                     <ChartCard/>
                 </View>
             </View>
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
 
         width: '100%',
 
-        gap: 30,
+        gap: 20,
     },
 
     imageBackground: {
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
         width: 75,
         height: 75,
         borderRadius: 50,
+        backgroundColor: 'black',
         overflow: 'hidden',
     },
 
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
 
     text: {
         textTransform: 'uppercase',
-        fontSize: 20,
+        fontSize: 18,
     },
 
 
