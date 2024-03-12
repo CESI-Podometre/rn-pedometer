@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
 
-        width: 150,
+        width: 125,
+
+        marginBottom: 30,
     },
 
     lockedImage: {
