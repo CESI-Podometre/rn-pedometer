@@ -51,9 +51,7 @@ function Counter() {
             {/*{isPedometerAvailable && (*/}
             {/*        <Text style={styles.steps}>{pastStepCount}</Text>*/}
             {/*)}*/}
-
-            <Text style={styles.steps}>{currentDayStepCount} Pas</Text>
-            <Text style={styles.steps}>{previousDayStepCount} Pas (24h)</Text>
+                <Text style={styles.steps}>{currentDayStepCount} Pas</Text>
         </View>
     );
 }
@@ -64,11 +62,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-
     steps: {
         fontSize: 20,
         fontWeight: 'bold',
-    },
+    },   
 });
 
 export default Counter;
