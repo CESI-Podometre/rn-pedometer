@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from "react-native";
 
 export default function ChallengeCard({params}: { params: { title: string, description: string } }) {
-    const image = require('../assets/Backgrounds/background-ranking.png');
+    const image = require('../../assets/Backgrounds/background-ranking.png');
     const title = params.title.slice(0, 20) + (params.title.length > 20 ? '...' : '');
     const description = params.description.slice(0, 50) + (params.description.length > 50 ? '...' : '');
 
@@ -20,13 +20,13 @@ export default function ChallengeCard({params}: { params: { title: string, descr
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        minWidth: 200,
+        minWidth: 190,
         height: 250,
         backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'space-between',
 
-        borderColor: 'black',
+        borderColor: "#797979",
         borderWidth: 1,
         borderRadius: 20,
 
