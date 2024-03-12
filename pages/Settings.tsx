@@ -1,4 +1,4 @@
-import {Button, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View} from "react-native";
+import {Button, Image, Pressable, SafeAreaView, StyleSheet, Text, View} from "react-native";
 
 import { useUserContext } from "../context/UserContext";
 
