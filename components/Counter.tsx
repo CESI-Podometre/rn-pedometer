@@ -4,11 +4,10 @@ import {Platform, StyleSheet, Text, View} from "react-native";
 
 function Counter() {
     const [isPedometerAvailable, setIsPedometerAvailable] = useState(false);
-    const [pastStepCount, setPastStepCount] = useState(0);
-    const [currentStepCount, setCurrentStepCount] = useState(0);
-
     const [previousDayStepCount, setPreviousDayStepCount] = useState(0);
     const [currentDayStepCount, setCurrentDayStepCount] = useState(0);
+
+    console.log(isPedometerAvailable);
 
     const subscribe = async () => {
         const isAvailable = await Pedometer.isAvailableAsync();
@@ -26,12 +25,13 @@ function Counter() {
                 }
             }
 
-            if  (Platform.OS === "android") {
-
-            }
+            // if  (Platform.OS === "android") {
+            //
+            // }
 
             return Pedometer.watchStepCount((result) => {
-                setCurrentStepCount(result.steps);
+                setCurrentDayStepCount(result.steps);
+                console.log(result);
             });
         } else {
             return "Unavailable";
@@ -52,7 +52,8 @@ function Counter() {
             {/*        <Text style={styles.steps}>{pastStepCount}</Text>*/}
             {/*)}*/}
 
-            <Text style={styles.steps}>{currentStepCount} Pas</Text>
+            <Text style={styles.steps}>{currentDayStepCount} Pas</Text>
+            <Text style={styles.steps}>{previousDayStepCount} Pas (24h)</Text>
         </View>
     );
 }

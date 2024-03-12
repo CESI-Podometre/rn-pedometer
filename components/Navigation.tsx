@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator initialRouteName="Home">
                 <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profil', headerShown: false, tabBarIcon: () => null }} />
 
                 <Tab.Screen name="Progession" component={Progress} options={{ title: 'Progression', headerShown: false, tabBarIcon: () => null }} />

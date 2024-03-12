@@ -1,10 +1,14 @@
-import {Button, Image, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View} from "react-native";
+import {Button, Image, Pressable, SafeAreaView, StyleSheet, Text, View} from "react-native";
+
+import { useUserContext } from "../context/UserContext";
 
 export default function Settings() {
     const LogoCHY = require('../assets/Logos/logo-chu-colored.png');
-    const LogoDEPS = require('../assets/Logos/logo-chu.png');
+    const LogoDEPS = require('../assets/Logos/logo-deps.png');
 
     const Avatar = require('../assets/Avatars/astro_blue.png');
+
+    const userContext = useUserContext();
 
     return (
         <SafeAreaView style={styles.page}>
@@ -32,20 +36,26 @@ export default function Settings() {
 
             <View style={styles.links}>
 
-                <Button title={"Delete Account"} color={"red"}/>
+                <Pressable style={styles.pressable}>
+                    <Text>Conditions Générales d'Utilisation</Text>
+                </Pressable>
 
-                <Button title={"Conditions Générales d'Utilisation"}/>
+                <Pressable style={styles.pressable}>
+                    <Text>Politique de confidentialité</Text>
+                </Pressable>
 
-                <Button title={"Politique de confidentialité"}/>
+                <Pressable style={styles.pressable}>
+                    <Text>Mentions légales</Text>
+                </Pressable>
 
-                <Button title={"Mentions légales"}/>
+                <Button title={"Logout"} color={"red"} onPress={() => userContext.removeUserId()}/>
 
             </View>
 
 
             <View style={styles.images}>
-                <Image source={LogoCHY} style={{width: 100, height: 100}}/>
-                <Image source={LogoDEPS} style={{width: 100, height: 100}}/>
+                <Image source={LogoCHY} style={styles.image}/>
+                <Image source={LogoDEPS} style={styles.image}/>
             </View>
 
         </SafeAreaView>
@@ -67,6 +77,7 @@ const styles = StyleSheet.create({
     links: {
         width: "90%",
         alignItems: 'flex-start',
+        gap: 15,
     },
 
     avatarSelector: {
@@ -75,17 +86,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         gap: 30,
-    },
-
-    input: {
-        width: "100%",
-        height: 40,
-        padding: 10,
-        borderWidth: 1,
-        borderColor: 'black',
-
-        borderRadius: 10,
-        overflow: 'hidden',
     },
 
     text: {
@@ -102,8 +102,21 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
 
+    pressable: {
+        backgroundColor: 'lightgrey',
+        padding: 10,
+        borderRadius: 10,
+    },
+
     images: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-    }
+        width: "90%",
+    },
+
+    image: {
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
+    },
 });

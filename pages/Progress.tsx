@@ -1,26 +1,22 @@
-import { Text, StyleSheet, SafeAreaView} from "react-native";
+import {Image, ScrollView, StyleSheet, View} from "react-native";
 
 export default function Progress() {
+
+    const background = require('../assets/Backgrounds/background-ranking.png');
+
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.text}>Progress</Text>
-        </SafeAreaView>
+        <View>
+            <ScrollView>
+                <Image source={background} style={styles.image} />
+            </ScrollView>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center',
+    image: {
+        width: '100%',
+        resizeMode: 'cover',
 
-        gap: 30,
-    },
-
-    text: {
-        fontSize: 24,
-        fontWeight: '300',
-        color: 'black',
-
-        textTransform: 'uppercase',
     },
 });

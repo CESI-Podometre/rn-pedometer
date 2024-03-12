@@ -28,6 +28,9 @@
     },
     "ios": {
       "bundleIdentifier": "com.starfit.fr"
+    },
+    "android": {
+      "package": "com.starfit.fr"
     }
   }
 }

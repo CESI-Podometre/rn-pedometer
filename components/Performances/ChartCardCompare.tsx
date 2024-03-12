@@ -1,5 +1,5 @@
 import { BarChart } from "react-native-gifted-charts";
-import {View, Text} from "react-native";
+import {View} from "react-native";
 
 const ChartCard = () => {
     const data = [
@@ -32,16 +32,13 @@ const ChartCard = () => {
                 borderRadius: 20,
                 // backgroundColor: '#232B5D',
             }}>
-            {/*<Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>*/}
-            {/*    Overview*/}
-            {/*</Text>*/}
             <View style={{padding: 20, alignItems: 'center'}}>
                 <BarChart
                     data={data}
-                    barWidth={16}
+                    barWidth={10}
                     initialSpacing={10}
-                    spacing={14}
-                    barBorderRadius={4}
+                    // spacing={14}
+                    // barBorderRadius={4}
                     // showGradient
                     yAxisThickness={0}
                     xAxisType={'dashed'}
@@ -49,8 +46,8 @@ const ChartCard = () => {
                     yAxisTextStyle={{color: "#3f3f3f"}}
                     // stepValue={1000}
                     // maxValue={6000}
-                    // noOfSections={6}
-                    // yAxisLabelTexts={['0', '1k', '2k', '3k', '4k', '5k', '6k']}
+                    noOfSections={6}
+                    yAxisLabelTexts={['0', '1k', '2k', '3k', '4k', '5k', '6k']}
                     labelWidth={40}
                     xAxisLabelTextStyle={{color: "#3f3f3f", textAlign: 'center'}}
                     // showLine
