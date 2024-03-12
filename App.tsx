@@ -1,14 +1,14 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import Login from "./pages/Login";
+import {useUserContext} from "./context/UserContext";
 
-const isUserLoggedIn = false;
 export default function App() {
+
+    const userContext = useUserContext();
+    const userId : string = userContext.userId;
+
     return (
-        <Navigation/>
-
-        // <Login/>
-
-        // {isUserLoggedIn && <Navigation/>}
+        userId === '' ? <Login/> : <Navigation/>
     );
 }
