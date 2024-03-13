@@ -9,7 +9,7 @@ export default function ChallengeSlider() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Vos Challenges :</Text>
+            <Text style={styles.text}>Vos Challenges</Text>
             <ScrollView horizontal={true}>
                 {getChallenges().map(challenge => <ChallengeCard key={challenge.id} params={{title: challenge.title, description: "Description"}}/>)}
             </ScrollView>
@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: '300',
+        textTransform: 'uppercase',
         color: 'black',
     },
 });

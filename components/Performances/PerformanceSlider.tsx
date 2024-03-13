@@ -4,7 +4,7 @@ import ChartCardCompare from "./ChartCardCompare";
 export default function PerformanceSlider() {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Vos performances :</Text>
+            <Text style={styles.text}>Vos performances</Text>
             <ChartCardCompare/>
         </View>
     );
@@ -20,8 +20,9 @@ const styles = StyleSheet.create(
         },
 
         text: {
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: '300',
+            textTransform: 'uppercase',
             color: 'black',
         },
     }
