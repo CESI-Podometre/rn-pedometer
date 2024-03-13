@@ -54,7 +54,7 @@ const StepsGaugeChart = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Votre journée</Text>
+      <Text style={styles.text}>Votre journée :</Text>
       <PieChart data={data} centerLabelComponent={centerLabelComponent} {...donutConfig} />
       <View style={styles.bottomContainer}>
         <Counter />
@@ -65,12 +65,9 @@ const StepsGaugeChart = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 40,
     alignItems: 'center',
-
     backgroundColor: '#F3F3F3',
-    // backgroundColor: '#a70b0b',
-
     position: 'relative'
   },
   bottomContainer: {
@@ -84,13 +81,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     position: 'absolute',
-    // top: -68,
     bottom: -18
   },
   text: {
     marginBottom: 10,
-    textTransform: 'uppercase',
-    fontSize: 20,
+    fontWeight: '300',
+    fontSize: 24,
   },
   image: {
     width: 100,

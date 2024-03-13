@@ -14,7 +14,7 @@ export default function NewsSlider() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Actualités</Text>
+            <Text style={styles.text}>Actualités :</Text>
             <ScrollView horizontal>
                 {getNews().map(news => <NewsCard key={news.id}
                                                  params={{title: news.title, description: news.description}}/>)}
@@ -25,16 +25,15 @@ export default function NewsSlider() {
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 10,
         alignItems: 'center',
-        gap: 10,
+        gap: 20,
     },
 
     text: {
         fontSize: 24,
         fontWeight: '300',
         color: 'black',
-
-        textTransform: 'uppercase',
     },
 });
 
