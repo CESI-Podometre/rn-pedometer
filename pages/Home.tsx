@@ -1,7 +1,7 @@
 import {SafeAreaView, ScrollView, View} from "react-native";
 import Pool from "../components/Pool";
 import StepsGaugeChart from "../components/StepsGaugeChart";
-import ChallengeSlider from "../components/ChallengeSlider";
+import ChallengeSlider from "../components/Challenges/ChallengeSlider";
 import React from "react";
 import NewsSlider from "../components/News/NewsSlider";
 import PerformanceSlider from "../components/Performances/PerformanceSlider";

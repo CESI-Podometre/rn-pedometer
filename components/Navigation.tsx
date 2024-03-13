@@ -21,7 +21,7 @@ const Navigation = () => {
 
                 <Tab.Screen name="Actus" component={News} options={{ title: 'Actus', headerShown: false, tabBarIcon: () => null }} />
 
-                <Tab.Screen name="Parametres" component={Settings} options={{ title: 'Params', headerShown: true, tabBarIcon: () => null }} />
+                <Tab.Screen name="Parametres" component={Settings} options={{ title: 'Paramètres', headerShown: true, tabBarIcon: () => null }} />
             </Tab.Navigator>
         </NavigationContainer>
     );

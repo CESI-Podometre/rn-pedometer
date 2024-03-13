@@ -6,7 +6,7 @@ export default function Pool() {
     const [pool, setPool] = useState(0);
 
     // const poolBackground = {uri: 'https://t3.ftcdn.net/jpg/04/84/21/36/360_F_484213675_pCsyhX0ZqQ6jpG1NnkggHe6WiTxen8kk.jpg'};
-    const poolBackground = require('../assets/Backgrounds/pool-background.png');
+    let poolBackground = require('../assets/Backgrounds/pool-background.png');
 
     const getPool = async () => {
         const pool = 200;

@@ -19,21 +19,6 @@ export default function Settings() {
                 </Pressable>
             </View>
 
-            {/*<View style={styles.container}>*/}
-            {/*    <Text style={styles.text}>Username</Text>*/}
-            {/*    <TextInput style={styles.input}/>*/}
-            {/*</View>*/}
-
-            {/*<View style={styles.container}>*/}
-            {/*    <Text style={styles.text}>Password</Text>*/}
-            {/*    <TextInput style={styles.input}/>*/}
-            {/*    <TextInput style={styles.input}/>*/}
-            {/*</View>*/}
-
-            {/*<Pressable style={styles.button}>*/}
-            {/*    <Text>Save Changes</Text>*/}
-            {/*</Pressable>*/}
-
             <View style={styles.links}>
 
                 <Pressable style={styles.pressable}>
@@ -67,6 +52,13 @@ const styles = StyleSheet.create({
         gap: 30,
 
         alignItems: 'center',
+
+        backgroundColor: 'white',
+
+        height: '100%',
+
+        justifyContent: 'space-between',
+
     },
 
     container: {
@@ -112,6 +104,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: "90%",
+        marginBottom: 20,
     },
 
     image: {
