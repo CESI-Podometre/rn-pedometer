@@ -1,5 +1,6 @@
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { PieChart } from "react-native-gifted-charts";
+import Counter from "./Counter";
 40
 const StepsGaugeChart = () => {
 
@@ -53,8 +54,11 @@ const StepsGaugeChart = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Votre journée :</Text>
+      <Text style={styles.text}>Votre journée</Text>
       <PieChart data={data} centerLabelComponent={centerLabelComponent} {...donutConfig} />
+      <View style={styles.bottomContainer}>
+        <Counter />
+      </View>
     </View>
   );
 };
@@ -62,9 +66,26 @@ const StepsGaugeChart = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
+    alignItems: 'center',
+
+    backgroundColor: '#F3F3F3',
+    // backgroundColor: '#a70b0b',
+
+    position: 'relative'
+  },
+  bottomContainer: {
+    width: 300,
+    padding: 30,
+    backgroundColor: '#F3F3F3',
+    borderTopWidth: 1,
+    borderTopColor: 'black',
+    borderStyle: 'solid',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
+
+    position: 'absolute',
+    // top: -68,
+    bottom: -18
   },
   text: {
     marginBottom: 10,
