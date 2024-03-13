@@ -2,7 +2,7 @@ import {Image, ScrollView, StyleSheet, View} from "react-native";
 
 export default function Progress() {
 
-    const background = require('../assets/Backgrounds/background-ranking.png');
+    const background = require('@assets/Backgrounds/background-ranking.png');
 
     return (
         <View>

@@ -1,10 +1,10 @@
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { PieChart } from "react-native-gifted-charts";
 import Counter from "./Counter";
-40
+
 const StepsGaugeChart = () => {
 
-  const moon = require('../assets/Planets/moon.png');
+  const moon = require('@assets/Planets/moon.png');
 
   const totalStepsAim = 10000;
   const stepsDoneToday = 5000;
@@ -54,7 +54,7 @@ const StepsGaugeChart = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Votre journée :</Text>
+      <Text style={styles.text}>Votre journée</Text>
       <PieChart data={data} centerLabelComponent={centerLabelComponent} {...donutConfig} />
       <View style={styles.bottomContainer}>
         <Counter />
@@ -65,15 +65,15 @@ const StepsGaugeChart = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
+    marginTop: 20,
     alignItems: 'center',
-    backgroundColor: '#F3F3F3',
+
     position: 'relative'
   },
   bottomContainer: {
     width: 300,
-    padding: 27,
-    backgroundColor: '#F3F3F3',
+    padding: 30,
+    backgroundColor: '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: 'black',
     borderStyle: 'solid',
@@ -81,12 +81,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     position: 'absolute',
+    // top: -68,
     bottom: -18
   },
   text: {
     marginBottom: 10,
-    fontWeight: '300',
-    fontSize: 24,
+    textTransform: 'uppercase',
+    fontSize: 20,
   },
   image: {
     width: 100,

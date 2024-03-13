@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/Logos/logo.svg" alt="Logo de StarFit" width="150" height="150"></p>
+ .<p align="center"><img src="assets/Logos/svg/logo-starfit.svg" alt="Logo de StarFit" width="150" height="150"></p>
 
 
 <p align="center" style="font-size: 28px; font-weight: bold;">StarFit - Podomètre Spatial 🚀</p>
