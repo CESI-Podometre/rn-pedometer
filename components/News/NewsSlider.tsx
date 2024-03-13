@@ -1,6 +1,6 @@
 import NewsCard from "./NewsCard";
 import {ScrollView, StyleSheet, Text, View} from "react-native";
-import {Fragment} from "react";
+import axios from "@utils/axios";
 
 export default function NewsSlider() {
 
@@ -10,6 +10,9 @@ export default function NewsSlider() {
             {id: 2, title: "News 2", description: "Description 2"},
             {id: 3, title: "News 3", description: "Description 3"}
         ];
+
+        // return axios.get('https://www.storymakerapi.fr/api/v1/news')
+        //     .then(response => response.data)
     }
 
     return (

@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaView, Text, StyleSheet, ScrollView, ImageBackground } from "react-native";
-import NewsCard from "../components/News/NewsCard";
+import NewsCard from "@components/News/NewsCard";
 
 export default function News() {
-    const background = require('../assets/Backgrounds/background-news.png');
+    const background = require('@assets/Backgrounds/background-news.png');
 
     const getNews = () => [
         { id: 1, title: "News 1", description: "Description 1" },

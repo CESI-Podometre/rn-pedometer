@@ -1,10 +1,9 @@
-import React from "react";
 import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
-import AwardSlider from "../components/Awards/AwardSlider";
-import Counter from "../components/Counter";
-import ChartCard from "../components/Performances/ChartCard";
+import AwardSlider from "@components/Awards/AwardSlider";
+import Counter from "@components/Counter";
+import ChartCard from "@components/Performances/ChartCard";
 
-import { useUserContext } from "../context/UserContext";
+import { useUserContext } from "@context/UserContext";
 
 export default function Profile() {
     const profileBackground = require('../assets/Backgrounds/background-login.png');
@@ -13,7 +12,7 @@ export default function Profile() {
 
     const {userImage} = useUserContext();
 
-    let avatar = require('../assets/Avatars/astro_blue.png');
+    let avatar = require('@assets/Avatars/astro_blue.png');
 
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}>
@@ -55,6 +54,9 @@ const styles = StyleSheet.create({
 
         width: '100%',
 
+        position: 'relative',
+        top: -75,
+
         gap: 20,
     },
 
@@ -87,10 +89,8 @@ const styles = StyleSheet.create({
     },
 
     avatar: {
-        width: 75,
-        height: 75,
-        borderRadius: 50,
-        backgroundColor: 'black',
+        width: 125,
+        height: 125,
         overflow: 'hidden',
     },
 
@@ -111,9 +111,4 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 18,
     },
-
-
-
-
-
 });

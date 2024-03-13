@@ -1,10 +1,9 @@
 import {SafeAreaView, ScrollView, View} from "react-native";
-import Pool from "../components/Pool";
-import DailyStepsChart from "../components/DailyStepsChart";
-import ChallengeSlider from "../components/Challenges/ChallengeSlider";
-import React from "react";
-import NewsSlider from "../components/News/NewsSlider";
-import PerformanceSlider from "../components/Performances/PerformanceSlider";
+import Pool from "@components/Pool";
+import StepsGaugeChart from "@components/StepsGaugeChart";
+import ChallengeSlider from "@components/Challenges/ChallengeSlider";
+import NewsSlider from "@components/News/NewsSlider";
+import PerformanceSlider from "@components/Performances/PerformanceSlider";
 
 export default function Home() {
     return (
@@ -13,7 +12,7 @@ export default function Home() {
                 <Pool/>
 
                 <SafeAreaView style={{gap: 30}}>
-                    <DailyStepsChart />
+                    <StepsGaugeChart />
                     <PerformanceSlider/>
                     <ChallengeSlider/>
                     <NewsSlider/>

@@ -1,12 +1,12 @@
 import {Button, Image, Pressable, SafeAreaView, StyleSheet, Text, View} from "react-native";
 
-import { useUserContext } from "../context/UserContext";
+import { useUserContext } from "@context/UserContext";
 
 export default function Settings() {
-    const LogoCHY = require('../assets/Logos/logo-chu-colored.png');
-    const LogoDEPS = require('../assets/Logos/logo-deps.png');
+    const LogoCHY = require('@assets/Logos/logo-chu.png');
+    const LogoDEPS = require('@assets/Logos/logo-deps.png');
 
-    const Avatar = require('../assets/Avatars/astro_blue.png');
+    const Avatar = require('@assets/Avatars/astro_blue.png');
 
     const userContext = useUserContext();
 
