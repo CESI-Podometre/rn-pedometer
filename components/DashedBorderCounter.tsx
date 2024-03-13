@@ -24,15 +24,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#F3F3F3",
         borderTopWidth: 1,
         borderTopColor: 'black',
-        borderStyle: 'dashed',
+        borderStyle: 'solid',
         justifyContent: 'center',
         alignItems: 'center',
     },
     overlay: {
-        position: 'absolute',
-        top: 180,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        position: 'relative',
+        top: -100,
       },
 });
