@@ -5,7 +5,6 @@ import ChallengeSlider from "../components/Challenges/ChallengeSlider";
 import React from "react";
 import NewsSlider from "../components/News/NewsSlider";
 import PerformanceSlider from "../components/Performances/PerformanceSlider";
-import DashedBorderCounter from "../components/DashedBorderCounter";
 
 export default function Home() {
     return (
@@ -15,7 +14,6 @@ export default function Home() {
 
                 <SafeAreaView style={{gap: 30}}>
                     <StepsGaugeChart />
-                    <DashedBorderCounter />
                     <PerformanceSlider/>
                     <ChallengeSlider/>
                     <NewsSlider/>

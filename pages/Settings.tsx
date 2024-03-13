@@ -20,7 +20,6 @@ export default function Settings() {
             </View>
 
             <View style={styles.links}>
-
                 <Pressable style={styles.pressable}>
                     <Text>Conditions Générales d'Utilisation</Text>
                 </Pressable>
@@ -34,9 +33,7 @@ export default function Settings() {
                 </Pressable>
 
                 <Button title={"Logout"} color={"red"} onPress={() => userContext.removeUserId()}/>
-
             </View>
-
 
             <View style={styles.images}>
                 <Image source={LogoCHY} style={styles.image}/>
