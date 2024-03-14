@@ -1,16 +1,16 @@
-import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
+import {Button, Image, ImageBackground, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import AwardSlider from "@components/Awards/AwardSlider";
 import Counter from "@components/Counter";
 import ChartCard from "@components/Performances/ChartCard";
 
-import { useUserContext } from "@context/UserContext";
+import {useUserContext} from "@context/UserContext";
 
 export default function Profile() {
-    const profileBackground = require('../assets/Backgrounds/background-login.png');
-    const profilePlanet = require('../assets/Planets/moon.png');
-    const astronaut = require('../assets/astro.png');
+    const profileBackground = require('@assets/Backgrounds/background-login.png');
+    const profilePlanet = require('@assets/Planets/moon.png');
+    const astronaut = require('@assets/astro.png');
 
-    const {userImage} = useUserContext();
+    const userContext = useUserContext();
 
     let avatar = require('@assets/Avatars/astro_blue.png');
 
@@ -42,6 +42,22 @@ export default function Profile() {
                     <Text style={styles.text}>Mes performances</Text>
                     <ChartCard/>
                 </View>
+            </View>
+
+            <View style={styles.additionnalLinks}>
+                <Pressable style={styles.pressable}>
+                    <Text>Conditions Générales d'Utilisation</Text>
+                </Pressable>
+
+                <Pressable style={styles.pressable}>
+                    <Text>Politique de confidentialité</Text>
+                </Pressable>
+
+                <Pressable style={styles.pressable}>
+                    <Text>Mentions légales</Text>
+                </Pressable>
+
+                <Button title={"Logout"} color={"red"} onPress={() => userContext.removeUserToken()}/>
             </View>
         </ScrollView>
     );
@@ -111,4 +127,18 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 18,
     },
+
+    additionnalLinks: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 20,
+        padding: 20,
+
+        marginBottom: 75,
+    },
+
+    pressable: {
+
+    }
 });
