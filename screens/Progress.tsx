@@ -3,8 +3,9 @@ import { ImageBackground, ScrollView, StyleSheet, View, Dimensions } from 'react
 import LottieView from 'lottie-react-native'; 
 import { Planets } from '../assets/Backgrounds/Svg';
 
-const { height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 const backgroundImageHeight = height * 2;
+const backgroundImageWidth = width;
 
 export default function Progress() {
     const [currentAnimation, setCurrentAnimation] = useState('rocket');
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
     },
     image: {
-        resizeMode: 'contain',
+        objectFit: 'cover',
         justifyContent: 'center',
         alignItems: 'center', 
     },
