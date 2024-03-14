@@ -1,21 +1,26 @@
-import {Pressable, StyleSheet, Text, View} from "react-native";
+import {Image, Pressable, StyleSheet, Text, View} from "react-native";
 
 // @ts-ignore
 export default function TabBar({navigation}) {
+
+    const HomeIcon = require('@assets/Icon/user-icon.png')
+    const ProgressIcon = require('@assets/Icon/user-icon.png')
+    const NewsIcon = require('@assets/Icon/news-icon.png')
+
 
     return (
         <View style={styles.container}>
             <View style={styles.navigation}>
                 <Pressable onPress={() => navigation.navigate('Home')} style={styles.button}>
+                    <Image source={HomeIcon} style={styles.image}/>
                     <Text>Accueil</Text>
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Profile')} style={styles.button}>
-                    <Text>Profil</Text>
-                </Pressable>
                 <Pressable onPress={() => navigation.navigate('Progress')} style={styles.button}>
+                    <Image source={ProgressIcon} style={styles.image}/>
                     <Text>Progression</Text>
                 </Pressable>
                 <Pressable onPress={() => navigation.navigate('News')} style={styles.button}>
+                    <Image source={NewsIcon} style={styles.image}/>
                     <Text>Actus</Text>
                 </Pressable>
             </View>
@@ -34,7 +39,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20,
-        height: 50,
+        height: 60,
 
         borderRadius: 50,
 
@@ -52,5 +57,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+
+        flexDirection: 'column',
+    },
+
+    image: {
+        width: 25,
+        height: 25,
     }
 });
