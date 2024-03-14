@@ -6,7 +6,7 @@ export const useChallengeContext = create(
     persist(
         (set) => ({
             challenge: [],
-            setChallenge: (challenge) => set({ challenge }),
+            setChallenges: (challenge) => set({ challenge }),
             addChallenge: (challenge) => set((state) => ({ challenge: [...state.challenge, challenge] })),
             removeChallenge: (challenge) => set((state) => ({ challenge: state.challenge.filter((c) => c.id !== challenge.id) })),
             updateChallenge: (challenge) => set((state) => ({ challenge: state.challenge.map((c) => (c.id === challenge.id ? challenge : c)) })),

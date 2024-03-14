@@ -1,15 +1,30 @@
-import React from "react";
-import { SafeAreaView, Text, StyleSheet, ScrollView, ImageBackground } from "react-native";
+import React, {useEffect, useState} from "react";
+import {ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text} from "react-native";
 import NewsCard from "@components/News/NewsCard";
+import axios from "axios";
+import {useUserContext} from "@context/UserContext";
+import {useNewsContext} from "@context/NewsContext";
 
 export default function News() {
     const background = require('@assets/Backgrounds/background-news.png');
 
-    const getNews = () => [
-        { id: 1, title: "News 1", description: "Description 1" },
-        { id: 2, title: "News 2", description: "Description 2" },
-        { id: 3, title: "News 3", description: "Description 3" }
-    ];
+    const userContext = useUserContext();
+    const newsContext = useNewsContext()
+
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://www.storymakerapi.fr/api/v1/articles/user-content', {
+            headers: {
+                Authorization: `Bearer ${userContext.userToken}`
+            }
+        }).then((response) => {
+            if (response.status === 200) {
+                setNews(response.data);
+                newsContext.setNews(response.data);
+            }
+        });
+    }, []);
 
     return (
         <ImageBackground source={background} style={styles.background}>
@@ -17,9 +32,11 @@ export default function News() {
                 <Text style={styles.text}>Actualités</Text>
                 <Text>Ici vous retrouverez les dernières actualités de l'application</Text>
                 <ScrollView contentContainerStyle={styles.scrollView}>
-                    {getNews().map(news => (
-                        <NewsCard key={news.id} params={{ title: news.title, description: news.description }} />
-                    ))}
+                    {newsContext.news.map((news: any, index: React.Key | null | undefined) => {
+                        return (
+                            <NewsCard key={index} params={news}/>
+                        )
+                    })}
                 </ScrollView>
             </SafeAreaView>
         </ImageBackground>

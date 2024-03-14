@@ -1,10 +1,11 @@
 import {Button, Image, ImageBackground, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import AwardSlider from "@components/Awards/AwardSlider";
-import Counter from "@components/Counter";
 import ChartCard from "@components/Performances/ChartCard";
 
 import {useUserContext} from "@context/UserContext";
 import {useState} from "react";
+import axios from "axios";
+
 
 export default function Profile() {
     const profileBackground = require('@assets/Backgrounds/background-login.png');
@@ -16,6 +17,15 @@ export default function Profile() {
     let avatar = require('@assets/Avatars/astro_blue.png');
 
     const [totalUserSteps, setTotalUserSteps] = useState(0);
+
+    axios.get('https://www.storymakerapi.fr/api/v1/users/me',{
+        headers: {
+            Authorization: `Bearer ${userContext.userToken}`
+        }
+    }).then((response) => {
+        console.log(response.data);
+        setTotalUserSteps(response.data.totalSteps);
+    });
 
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}>
@@ -146,7 +156,5 @@ const styles = StyleSheet.create({
         marginBottom: 75,
     },
 
-    pressable: {
-
-    }
+    pressable: {}
 });
