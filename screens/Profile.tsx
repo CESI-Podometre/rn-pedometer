@@ -4,6 +4,7 @@ import Counter from "@components/Counter";
 import ChartCard from "@components/Performances/ChartCard";
 
 import {useUserContext} from "@context/UserContext";
+import {useState} from "react";
 
 export default function Profile() {
     const profileBackground = require('@assets/Backgrounds/background-login.png');
@@ -13,6 +14,8 @@ export default function Profile() {
     const userContext = useUserContext();
 
     let avatar = require('@assets/Avatars/astro_blue.png');
+
+    const [totalUserSteps, setTotalUserSteps] = useState(0);
 
     return (
         <ScrollView contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}>
@@ -30,7 +33,7 @@ export default function Profile() {
 
                 <View style={styles.container}>
                     <Text style={styles.text}>Nombre de pas total</Text>
-                    <Counter/>
+                    <Text style={styles.stepNumber}>{totalUserSteps}</Text>
                 </View>
 
                 <View style={styles.container}>
@@ -121,6 +124,11 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 60,
         padding: 20,
         gap: 60,
+    },
+
+    stepNumber: {
+        fontSize: 24,
+        fontWeight: 'bold',
     },
 
     text: {

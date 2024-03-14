@@ -3,9 +3,9 @@ import {Image, Pressable, StyleSheet, Text, View} from "react-native";
 // @ts-ignore
 export default function TabBar({navigation}) {
 
-    const HomeIcon = require('@assets/Icon/user-icon.png')
-    const ProgressIcon = require('@assets/Icon/user-icon.png')
-    const NewsIcon = require('@assets/Icon/news-icon.png')
+    const HomeIcon = require('@assets/Planets/earth.png')
+    const ProgressIcon = require('@assets/Icon/spaceship.png')
+    const NewsIcon = require('@assets/Icon/news.png')
 
 
     return (
@@ -45,6 +45,13 @@ const styles = StyleSheet.create({
 
         borderWidth: 1,
         borderColor: 'rgba(88,61,220,0.72)',
+
+        // box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.3,
+        shadowRadius: 20,
 
         backgroundColor: '#FFF',
 

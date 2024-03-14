@@ -17,6 +17,8 @@ export default function Home() {
                     <ChallengeSlider/>
                     <NewsSlider/>
                 </SafeAreaView>
+
+                <View style={{height: 100}}/>
             </ScrollView>
 
         </View>
