@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
-import { ImageBackground, ScrollView, StyleSheet, View, Dimensions } from 'react-native';
+import { ScrollView, StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import LottieView from 'lottie-react-native'; 
-import { Planets } from '../assets/Backgrounds/Svg';
 
 const { height, width } = Dimensions.get('window');
-const backgroundImageHeight = height * 2;
-const backgroundImageWidth = width;
+const screenHeight = height;
+const backgroundImageHeight = screenHeight * 2;
 
 export default function Progress() {
     const [currentAnimation, setCurrentAnimation] = useState('rocket');
-    const background = require('../assets/Backgrounds/background-progress.png');
-
+    
     const handleSwitchAnimation = () => {
         setCurrentAnimation(currentAnimation === 'rocket' ? 'rocket-wavy' : 'rocket');
     };
     
     return (
         <ScrollView contentContainerStyle={styles.scrollView}>
-            <Planets style={[styles.image, { height: backgroundImageHeight }]} />
-                <View style={styles.container}>
-                    <LottieView
-                        source={require(`../assets/Animations/rocket.json`)}
-                        autoPlay
-                        loop
-                        style={styles.animation}
-                    />
-                </View>
+            <ImageBackground 
+                source={require('../assets/Backgrounds/planets.png')} 
+                style={[styles.backgroundImage, { height: backgroundImageHeight }]}
+                resizeMode="cover" 
+            >
+                <LottieView
+                    source={require(`../assets/Animations/rocket.json`)}
+                    autoPlay
+                    loop
+                    style={styles.animation}
+                />
+            </ImageBackground>
         </ScrollView>
     );
 }
@@ -34,20 +35,14 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center', 
-        alignItems: 'center', 
-    },
-    image: {
-        objectFit: 'cover',
+    backgroundImage: {
+        width: '100%',
         justifyContent: 'center',
-        alignItems: 'center', 
+        alignItems: 'center',
     },
     animation: {
-        position: 'absolute',
         width: 400,
         height: 400,
-        bottom: 50,
+        marginBottom: 50,
     },
 });
