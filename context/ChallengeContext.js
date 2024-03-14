@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {persist} from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useChallengeContext = create(
     persist(
@@ -13,7 +14,7 @@ export const useChallengeContext = create(
         }),
         {
             name: "challenge-storage",
-            storage: localStorage
+            getStorage: () => AsyncStorage
         }
     )
 );

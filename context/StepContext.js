@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {persist} from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useStepContext = create(
     persist(
@@ -9,7 +10,7 @@ export const useStepContext = create(
         }),
         {
             name: "step-storage",
-            storage: localStorage
+            getStorage: () => AsyncStorage
         }
     )
 );
