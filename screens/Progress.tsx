@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         position: 'absolute',
-        bottom: -140,
+        bottom: -130,
         left: 0,
     },
     animation: {
