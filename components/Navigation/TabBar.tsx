@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
         flexDirection: 'column',
+
+        gap: 5
     },
 
     image: {

@@ -45,15 +45,7 @@
       "./androidManifestPlugin.js",
       "react-native-health",
       [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 33,
-            "targetSdkVersion": 33,
-            "buildToolsVersion": "33.0.0",
-            "minSdkVersion": 26
-          }
-        }
+        "expo-build-properties"
       ]
     ]
   }
