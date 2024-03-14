@@ -1,71 +1,76 @@
-import { Pedometer } from "expo-sensors";
+import AppleHealthKit, {
+    HealthInputOptions,
+    HealthKitPermissions,
+    HealthUnit,
+} from "react-native-health";
+
+// import
+
 import {useEffect, useState} from "react";
-import {Platform, StyleSheet, Text, View} from "react-native";
+import {Platform, StyleSheet, Text} from "react-native";
 
-function Counter() {
-    const [isPedometerAvailable, setIsPedometerAvailable] = useState(false);
-    const [previousDayStepCount, setPreviousDayStepCount] = useState(0);
-    const [currentDayStepCount, setCurrentDayStepCount] = useState(0);
 
-    console.log(isPedometerAvailable);
+const {steps, distance, flights} = useHealthData();
 
-    const subscribe = async () => {
-        const isAvailable = await Pedometer.isAvailableAsync();
-        setIsPedometerAvailable(isAvailable);
 
-        if (isAvailable) {
-            const end = new Date();
-            const start = new Date();
-            start.setDate(end.getDate() - 1);
+const {Permissions} = AppleHealthKit.Constants;
 
-            if (Platform.OS === "ios") {
-                const previousDayStepCountResult = await Pedometer.getStepCountAsync(start, end);
-                if (previousDayStepCountResult) {
-                    setPreviousDayStepCount(previousDayStepCountResult.steps);
-                }
-            }
+const permissions: HealthKitPermissions = {
+    permissions: {
+        read: [
+            Permissions.Steps,
+            Permissions.FlightsClimbed,
+            Permissions.DistanceWalkingRunning,
+        ],
+        write: [],
+    },
+};
 
-            // if  (Platform.OS === "android") {
-            //
-            // }
-
-            return Pedometer.watchStepCount((result) => {
-                setCurrentDayStepCount(result.steps);
-                console.log(result);
-            });
-        } else {
-            return "Unavailable";
-        }
-    };
+const useHealthData = (date: Date) => {
+    const [hasPermissions, setHasPermission] = useState(false);
+    const [steps, setSteps] = useState(0);
 
     useEffect(() => {
-        async function getSubscription() {
-            const subscription = await subscribe();
-            return () => subscription;
+        if (Platform.OS == 'ios') {
+            AppleHealthKit.initHealthKit(permissions, (err) => {
+                if (err) {
+                    console.log('Error getting permissions');
+                    return;
+                }
+                setHasPermission(true);
+            });
         }
-        getSubscription();
     }, []);
 
+    useEffect(() => {
+        if (!hasPermissions) {
+            return;
+        }
+
+        // Query Health data
+        const options: HealthInputOptions = {
+            date: new Date().toISOString(),
+        };
+
+        AppleHealthKit.getStepCount(options, (err, results) => {
+            if (err) {
+                console.log('Error getting the steps');
+                return;
+            }
+            setSteps(results.value);
+        });
+    }, [hasPermissions]);
+
     return (
-        <View style={styles.container}>
-            {/*{isPedometerAvailable && (*/}
-            {/*        <Text style={styles.steps}>{pastStepCount}</Text>*/}
-            {/*)}*/}
-                <Text style={styles.steps}>{currentDayStepCount} Pas</Text>
-        </View>
-    );
+        <Text style={styles.steps}>{steps}</Text>
+    )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
     steps: {
         fontSize: 20,
         fontWeight: 'bold',
-    },   
-});
+    },
+})
 
-export default Counter;
+export default useHealthData;

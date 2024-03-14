@@ -27,10 +27,28 @@
       "url": "https://u.expo.dev/b340f1b7-5431-4fd3-922b-b662c3382bbe"
     },
     "ios": {
-      "bundleIdentifier": "com.starfit.fr"
+      "bundleIdentifier": "com.starfit.fr",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "This app requires access to your health data to track your steps.",
+        "NSHealthUpdateUsageDescription": "This app requires access to your health data to track your steps."
+      }
     },
     "android": {
       "package": "com.starfit.fr"
-    }
+    },
+    "plugins": [
+      "react-native-health",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0",
+            "minSdkVersion": 26
+          }
+        }
+      ]
+    ]
   }
 }
