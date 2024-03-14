@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 import {Platform, StyleSheet, Text} from "react-native";
 
 
-const {steps, distance, flights} = useHealthData();
+// const {steps, distance, flights} = useHealthData();
 
 
 const {Permissions} = AppleHealthKit.Constants;

@@ -34,9 +34,15 @@
       }
     },
     "android": {
-      "package": "com.starfit.fr"
+      "package": "com.starfit.fr",
+      "permissions": [
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_FLOOR_CLIMBED",
+        "android.permission.health.READ_DISTANCE"
+      ]
     },
     "plugins": [
+      "./androidManifestPlugin.js",
       "react-native-health",
       [
         "expo-build-properties",
