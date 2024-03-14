@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useAwardContext = create(
     persist(
@@ -13,7 +14,7 @@ export const useAwardContext = create(
         }),
         {
             name: "award-storage",
-            storage: createJSONStorage(() => localStorage)
+            getStorage: () => AsyncStorage
         }
     )
 );

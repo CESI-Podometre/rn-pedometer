@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {persist} from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useUserContext = create(
     persist(
@@ -13,7 +14,7 @@ export const useUserContext = create(
         }),
         {
             name: "user-storage",
-            // storage: localStorage
+            getStorage: () => AsyncStorage
         }
     )
 );

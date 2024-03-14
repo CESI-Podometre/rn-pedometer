@@ -1,17 +1,37 @@
 import ChallengeCard from "./ChallengeCard";
 import {ScrollView, StyleSheet, Text, View} from "react-native";
+import axios from "axios";
+import {useUserContext} from "@context/UserContext";
+import {Key, useEffect, useState} from "react";
+import {useChallengeContext} from "@context/ChallengeContext";
 
 export default function ChallengeSlider() {
 
-    const getChallenges = () => {
-        return [{id: 1, title: "Challenge 1"}, {id: 2, title: "Challenge 2"}, {id: 3, title: "Challenge 3"}];
-    }
+    const userContext = useUserContext();
+    const challengeContext = useChallengeContext()
+
+    const [challenges, setChallenges] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://www.storymakerapi.fr/api/v1/challenges/user-content', {
+            headers: {
+                Authorization: `Bearer ${userContext.userToken}`
+            }
+        }).then((response) => {
+                setChallenges(response.data);
+                challengeContext.setChallenges(response.data);
+        });
+    }, []);
 
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Vos Challenges</Text>
-            <ScrollView horizontal={true}>
-                {getChallenges().map(challenge => <ChallengeCard key={challenge.id} params={{title: challenge.title, description: "Description"}}/>)}
+            <ScrollView horizontal>
+                {challengeContext.challenge.map((challenge: any, index: Key | null | undefined) => {
+                    return (
+                        <ChallengeCard key={index} params={challenge}/>
+                    )
+                })}
             </ScrollView>
         </View>
     );

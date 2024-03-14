@@ -1,7 +1,10 @@
 import {Image, Pressable, StyleSheet, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 // @ts-ignore
-export default function UserIcon({navigation}) {
+export default function UserIcon() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <Pressable onPress={() => navigation.navigate('Profile')}>
@@ -16,7 +19,6 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         width: 50,
-
 
         position: 'absolute',
         top: 50,

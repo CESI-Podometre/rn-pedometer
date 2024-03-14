@@ -1,71 +1,127 @@
-import { Pedometer } from "expo-sensors";
+import AppleHealthKit, {HealthInputOptions, HealthKitPermissions,} from "react-native-health";
+
+import {initialize, readRecords, requestPermission,} from 'react-native-health-connect';
+import {Permission} from 'react-native-health-connect/lib/typescript/types';
+import {TimeRangeFilter} from 'react-native-health-connect/lib/typescript/types/base.types';
+
+
 import {useEffect, useState} from "react";
-import {Platform, StyleSheet, Text, View} from "react-native";
+import {Platform, StyleSheet, Text} from "react-native";
 
-function Counter() {
-    const [isPedometerAvailable, setIsPedometerAvailable] = useState(false);
-    const [previousDayStepCount, setPreviousDayStepCount] = useState(0);
-    const [currentDayStepCount, setCurrentDayStepCount] = useState(0);
 
-    console.log(isPedometerAvailable);
+// const {steps, distance, flights} = useHealthData();
 
-    const subscribe = async () => {
-        const isAvailable = await Pedometer.isAvailableAsync();
-        setIsPedometerAvailable(isAvailable);
 
-        if (isAvailable) {
-            const end = new Date();
-            const start = new Date();
-            start.setDate(end.getDate() - 1);
+const {Permissions} = AppleHealthKit.Constants;
 
-            if (Platform.OS === "ios") {
-                const previousDayStepCountResult = await Pedometer.getStepCountAsync(start, end);
-                if (previousDayStepCountResult) {
-                    setPreviousDayStepCount(previousDayStepCountResult.steps);
-                }
-            }
+const permissions: HealthKitPermissions = {
+    permissions: {
+        read: [
+            Permissions.Steps,
+            Permissions.FlightsClimbed,
+            Permissions.DistanceWalkingRunning,
+        ],
+        write: [],
+    },
+};
 
-            // if  (Platform.OS === "android") {
-            //
-            // }
 
-            return Pedometer.watchStepCount((result) => {
-                setCurrentDayStepCount(result.steps);
-                console.log(result);
-            });
-        } else {
-            return "Unavailable";
-        }
+const useHealthData = (date: Date) => {
+    const [androidPermissions, setAndroidPermissions] = useState<Permission[]>([]);
+
+    const hasAndroidPermission = (recordType: string) => {
+        return androidPermissions.some((perm) => perm.recordType === recordType);
     };
 
+    const [hasPermissions, setHasPermission] = useState(false);
+    const [steps, setSteps] = useState(0);
+
+
     useEffect(() => {
-        async function getSubscription() {
-            const subscription = await subscribe();
-            return () => subscription;
+        if (Platform.OS == 'android') {
+            const init = async () => {
+                // initialize the client
+                const isInitialized = await initialize();
+                if (!isInitialized) {
+                    console.log('Failed to initialize Health Connect');
+                    return;
+                }
+
+                // request permissions
+                const grantedPermissions = await requestPermission([
+                    {accessType: 'read', recordType: 'Steps'},
+                    {accessType: 'read', recordType: 'Distance'},
+                    {accessType: 'read', recordType: 'FloorsClimbed'},
+                ]);
+
+                setAndroidPermissions(grantedPermissions);
+            };
+
+            init();
         }
-        getSubscription();
+
+        if (Platform.OS == 'ios') {
+            AppleHealthKit.initHealthKit(permissions, (err) => {
+                if (err) {
+                    console.log('Error getting permissions');
+                    return;
+                }
+                setHasPermission(true);
+            });
+        }
     }, []);
 
+    useEffect(() => {
+        if (!hasAndroidPermission('Steps')) {
+            return;
+        }
+        const getHealthData = async () => {
+            const today = new Date();
+            const timeRangeFilter: TimeRangeFilter = {
+                operator: 'between',
+                startTime: new Date(today.getTime() - 86400000).toISOString(),
+                endTime: today.toISOString(),
+            };
+
+            // Steps
+            const steps = await readRecords('Steps', {timeRangeFilter});
+            const totalSteps = steps.reduce((sum, cur) => sum + cur.count, 0);
+            setSteps(totalSteps);
+        };
+
+        getHealthData();
+    }, [androidPermissions]);
+
+
+    useEffect(() => {
+        if (!hasPermissions) {
+            return;
+        }
+
+        // Query Health data
+        const options: HealthInputOptions = {
+            date: new Date().toISOString(),
+        };
+
+        AppleHealthKit.getStepCount(options, (err, results) => {
+            if (err) {
+                console.log('Error getting the steps');
+                return;
+            }
+            setSteps(results.value);
+        });
+    }, [hasPermissions]);
+
     return (
-        <View style={styles.container}>
-            {/*{isPedometerAvailable && (*/}
-            {/*        <Text style={styles.steps}>{pastStepCount}</Text>*/}
-            {/*)}*/}
-                <Text style={styles.steps}>{currentDayStepCount} Pas</Text>
-        </View>
-    );
+        <Text style={styles.steps}>{steps}</Text>
+    )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
     steps: {
         fontSize: 20,
         fontWeight: 'bold',
-    },   
-});
+    },
+})
 
-export default Counter;
+export default useHealthData;
