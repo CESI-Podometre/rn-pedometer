@@ -1,28 +1,32 @@
 import { BarChart } from "react-native-gifted-charts";
 import {View} from "react-native";
+import {useStepContext} from "@context/StepContext";
 
 const ChartCard = () => {
+
+    const stepContext = useStepContext();
+
     const data = [
-        {value: 2500, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Lun'},
-        {value: 2400, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 2500, frontColor: '#009FFF',  spacing: 6, label:'Lun'},
+        {value: 2400, frontColor: '#7a19ce'},
 
-        {value: 3500, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Mar'},
-        {value: 3000, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 3500, frontColor: '#009FFF',  spacing: 6, label:'Mar'},
+        {value: 3000, frontColor: '#7a19ce'},
 
-        {value: 4500, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Mer'},
-        {value: 4000, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 4500, frontColor: '#009FFF',  spacing: 6, label:'Mer'},
+        {value: 4000, frontColor: '#7a19ce'},
 
-        {value: 5200, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Jeu'},
-        {value: 4900, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 5200, frontColor: '#009FFF',  spacing: 6, label:'Jeu'},
+        {value: 4900, frontColor: '#7a19ce'},
 
-        {value: 3000, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Ven'},
-        {value: 2800, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 3000, frontColor: '#009FFF',  spacing: 6, label:'Ven'},
+        {value: 2800, frontColor: '#7a19ce'},
 
-        {value: 5000, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Sam'},
-        {value: 4800, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 5000, frontColor: '#009FFF',  spacing: 6, label:'Sam'},
+        {value: 4800, frontColor: '#7a19ce'},
 
-        {value: 6000, frontColor: '#009FFF', gradientColor: '#009FFF', spacing: 6, label:'Dim'},
-        {value: 5800, frontColor: '#7a19ce', gradientColor: '#93FCF8'},
+        {value: 6000, frontColor: '#009FFF',  spacing: 6, label:'Dim'},
+        {value: 5800, frontColor: '#7a19ce'},
     ];
 
     return(

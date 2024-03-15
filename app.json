@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-pedometer",
-    "slug": "rn-pedometer",
+    "name": "starfit",
+    "slug": "starfit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,19 +14,8 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "b340f1b7-5431-4fd3-922b-b662c3382bbe"
-      }
-    },
-    "runtimeVersion": "1.0.0",
-    "updates": {
-      "url": "https://u.expo.dev/b340f1b7-5431-4fd3-922b-b662c3382bbe"
-    },
     "ios": {
+      "supportsTablet": true,
       "bundleIdentifier": "com.starfit.fr",
       "infoPlist": {
         "NSHealthShareUsageDescription": "This app requires access to your health data to track your steps.",
@@ -34,26 +23,16 @@
       }
     },
     "android": {
-      "package": "com.starfit.fr",
-      "permissions": [
-        "android.permission.health.READ_STEPS",
-        "android.permission.health.READ_FLOOR_CLIMBED",
-        "android.permission.health.READ_DISTANCE"
-      ]
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "./androidManifestPlugin.js",
-      "react-native-health",
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 34,
-            "targetSdkVersion": 34,
-            "buildToolsVersion": "34.0.0"
-          }
-        }
-      ]
+      "react-native-health"
     ]
   }
 }

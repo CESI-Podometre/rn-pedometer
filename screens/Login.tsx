@@ -16,8 +16,8 @@ import axios from "axios";
 export default function Login() {
     const {height} = useWindowDimensions();
     const logo = require('@assets/Logos/logo-starfit-text-white.png');
-    const background = require('@assets/Backgrounds/background-login.png');
-    // const background = {uri: "https://img.freepik.com/free-vector/purple-blue-gradient_78370-295.jpg"};
+    // const background = require('@assets/Backgrounds/background-login.png');
+    const background = {uri: "https://img.freepik.com/free-vector/purple-blue-gradient_78370-295.jpg"};
 
     const [identifier, setIdentifier] = useState('');
 

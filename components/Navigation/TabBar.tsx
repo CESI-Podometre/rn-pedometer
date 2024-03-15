@@ -15,10 +15,10 @@ export default function TabBar({navigation}) {
                     <Image source={HomeIcon} style={styles.image}/>
                     <Text>Accueil</Text>
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Progress')} style={styles.button}>
-                    <Image source={ProgressIcon} style={styles.image}/>
-                    <Text>Progression</Text>
-                </Pressable>
+                {/*<Pressable onPress={() => navigation.navigate('Progress')} style={styles.button}>*/}
+                {/*    <Image source={ProgressIcon} style={styles.image}/>*/}
+                {/*    <Text>Progression</Text>*/}
+                {/*</Pressable>*/}
                 <Pressable onPress={() => navigation.navigate('News')} style={styles.button}>
                     <Image source={NewsIcon} style={styles.image}/>
                     <Text>Actus</Text>

@@ -1,16 +1,23 @@
 import {Image, StyleSheet, Text, View} from "react-native";
+import * as Progress from 'react-native-progress';
+
 
 export default function ChallengeCard({params}: { params: any}) {
 
     const title = params.title.slice(0, 20) + (params.title.length > 20 ? '...' : '');
     const description = params.description.slice(0, 50) + (params.description.length > 50 ? '...' : '');
 
+    console.log('params challenge card', params)
+
+    const progress = params.objective / params.progression > 1 ? 1 : params.objective / params.progression;
+
     return (
         <View style={styles.container}>
-            <Image source={{uri: params.badge.iconPath.startsWith('http') ? params.badge.iconPath : 'https://www.storymakerapi.fr/' + params.badge.iconPath}} style={styles.image}/>
+            <Image source={{uri: params.illustrationPath.startsWith('http') ? params.illustrationPath : 'https://www.storymakerapi.fr/' + params.illustrationPath}} style={styles.image}/>
             <View style={styles.textContainer}>
                 <Text>{title}</Text>
                 <Text>{description}</Text>
+                <Progress.Bar progress={progress} color={'#005ca6'} width={170}/>
             </View>
         </View>
     )
@@ -20,7 +27,7 @@ export default function ChallengeCard({params}: { params: any}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        minWidth: 190,
+        width: 190,
         height: 250,
         backgroundColor: '#ffffff',
         alignItems: 'center',

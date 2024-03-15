@@ -1,4 +1,4 @@
-import {Button, Image, ImageBackground, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
+import {Image, ImageBackground, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import AwardSlider from "@components/Awards/AwardSlider";
 import ChartCard from "@components/Performances/ChartCard";
 
@@ -23,7 +23,7 @@ export default function Profile() {
             Authorization: `Bearer ${userContext.userToken}`
         }
     }).then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setTotalUserSteps(response.data.totalSteps);
     });
 
@@ -70,7 +70,9 @@ export default function Profile() {
                     <Text>Mentions légales</Text>
                 </Pressable>
 
-                <Button title={"Logout"} color={"red"} onPress={() => userContext.removeUserToken()}/>
+                <Pressable style={styles.pressable} onPress={() => userContext.removeUserToken()}>
+                    <Text>Se déconnecter</Text>
+                </Pressable>
             </View>
         </ScrollView>
     );
